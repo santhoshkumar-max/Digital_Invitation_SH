@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #f7e09e, #d4af37, #aa820a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gold-shimmer {
+    background: linear-gradient(90deg, #d4af37, #fff6d6, #d4af37);
+    background-size: 200% 100%;
+    animation: goldShimmer 4s infinite linear;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .animate-intro-text {
+    animation: introZoomInOut 7.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .event-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (min-aspect-ratio: 2/3) {
+    .event-card-img {
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes goldVeilSweep {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(200%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.35), inset 0 0 10px rgba(251, 191, 36, 0.2);
+    border-color: rgba(251, 191, 36, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(251, 191, 36, 0.75), inset 0 0 16px rgba(251, 191, 36, 0.4);
+    border-color: rgba(255, 235, 130, 0.9);
+  }
+}
+
+@keyframes musicBar1 {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 14px;
+  }
+}
+
+@keyframes musicBar2 {
+  0%, 100% {
+    height: 14px;
+  }
+  50% {
+    height: 6px;
+  }
+}
+
+@keyframes musicBar3 {
+  0%, 100% {
+    height: 7px;
+  }
+  50% {
+    height: 12px;
+  }
+}
+
+@keyframes introZoomInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+    filter: blur(8px);
+  }
+  12% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  88% {
+    opacity: 1;
+    transform: scale(1.02);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(8px);
+    visibility: hidden;
+  }
+}
+
+::selection {
+  background-color: #d4af37;
+  color: #000;
+}
