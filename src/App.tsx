@@ -1180,12 +1180,10 @@ export default function App() {
         )}
 
         {/* Scroll Up bouncing prompt on Screen 1 */}
-        {showScrollPrompt && isDoorsScreen && (
+        {showScrollPrompt && (
           <div
-            onClick={triggerDoorOpeningSequence}
-            className={`absolute inset-0 z-20 flex flex-col items-center justify-end pb-12 sm:pb-16 transition-opacity duration-700 animate-[fadeIn_0.8s_ease-out_forwards] cursor-pointer ${
-              scrollProgress > 0.05 ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
-            }`}
+            onClick={() => goToScreen(currentScreen + 1)}
+            className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-12 sm:pb-16 animate-[fadeIn_0.8s_ease-out_forwards] cursor-pointer opacity-100 pointer-events-auto"
           >
             <div className="flex flex-col items-center gap-2 text-center group">
               <div className="animate-bounce flex flex-col items-center text-[#fbbf24] group-hover:scale-110 transition-transform">
