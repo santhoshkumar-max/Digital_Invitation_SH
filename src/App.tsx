@@ -1179,33 +1179,6 @@ export default function App() {
           </div>
         )}
 
-        {/* Scroll Up bouncing prompt on Screen 1 */}
-        {showScrollPrompt && (
-          <div
-            onClick={() => goToScreen(currentScreen + 1)}
-            className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-12 sm:pb-16 animate-[fadeIn_0.8s_ease-out_forwards] cursor-pointer opacity-100 pointer-events-auto"
-          >
-            <div className="flex flex-col items-center gap-2 text-center group">
-              <div className="animate-bounce flex flex-col items-center text-[#fbbf24] group-hover:scale-110 transition-transform">
-                <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6 drop-shadow-[0_2px_8px_rgba(251,191,36,0.85)]"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="18 15 12 9 6 15" />
-                </svg>
-              </div>
-              <span className="font-['Outfit',sans-serif] text-sm sm:text-base tracking-[0.25em] uppercase font-medium text-gold-shimmer drop-shadow-[0_2px_12px_rgba(212,175,55,0.85)]">
-                Scroll Up
-              </span>
-              <span className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#fbbf24]/60 to-transparent" />
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Screen 3: Invitation Page */}
@@ -1294,6 +1267,34 @@ export default function App() {
           )}
         </div>
       </div>
+
+      {/* Scroll Up bouncing prompt: persistent on all screens */}
+      {showScrollPrompt && (
+        <div className="fixed inset-x-0 bottom-0 z-30 flex justify-center pb-6 sm:pb-8 pointer-events-none animate-[fadeIn_0.8s_ease-out_forwards]">
+          <div
+            onClick={() => goToScreen(currentScreen + 1)}
+            className="flex flex-col items-center gap-2 text-center group cursor-pointer pointer-events-auto"
+          >
+            <div className="animate-bounce flex flex-col items-center text-[#fbbf24] group-hover:scale-110 transition-transform">
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6 drop-shadow-[0_2px_8px_rgba(251,191,36,0.85)]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="18 15 12 9 6 15" />
+              </svg>
+            </div>
+            <span className="font-['Outfit',sans-serif] text-sm sm:text-base tracking-[0.25em] uppercase font-medium text-gold-shimmer drop-shadow-[0_2px_12px_rgba(212,175,55,0.85)]">
+              Scroll Up
+            </span>
+            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent via-[#fbbf24]/60 to-transparent" />
+          </div>
+        </div>
+      )}
 
       {/* Floating Right Pagination Dots (1 to 5) */}
       <div className="fixed right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-3 pointer-events-auto">
